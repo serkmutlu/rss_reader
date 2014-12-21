@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <title><%= content_for?(:title) ? yield(:title) : "RSS Reader | Pre-Alpha" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    
+  <%= render 'rssreader/menu' %>
+
+  <div class="row" style="margin-top: 25px;">
+    <div class="large-3 columns">
+      <%= render 'rssreader/sidebar' %>
+    </div>
+    <div class="large-9 columns">
+      <%= yield %>
+    </div>
+  </div>
+    
+    
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

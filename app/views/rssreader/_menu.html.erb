@@ -1,0 +1,30 @@
+<div class="contain-to-grid sticky">
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to 'RSS Reader | Pre-Alpha', root_path %></h1>
+      </li>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="active"><a href="#">My Feed</a></li>
+        <li class="has-dropdown">
+          <a href="#">Hello, Serkan</a>
+          <ul class="dropdown">
+            <li><%= link_to 'Settings', "#" %></li>
+            <li><%= link_to 'Sign out', "#" %></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Left Nav Section
+      <ul class="left">
+        <li><a href="#">Left Nav Button</a></li>
+      </ul> -->
+    </section>
+  </nav>
+</div>
