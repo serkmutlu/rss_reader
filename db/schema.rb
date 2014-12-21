@@ -13,24 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20141221115835) do
 
-  create_table "articles", force: true do |t|
-    t.string   "heading"
-    t.text     "body"
-    t.string   "author"
-    t.integer  "rsslist_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "articles", ["rsslist_id"], name: "index_articles_on_rsslist_id"
-
-  create_table "rsslists", force: true do |t|
-    t.string   "name"
-    t.string   "rssaddress"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "rssreader", force: true do |t|
     t.string "rssaddress"
   end
