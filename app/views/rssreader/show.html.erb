@@ -1,7 +1,16 @@
-<h1><%= @rssitem.friendly_name %></h1>
-<% @feed.entries.each do |entry| %>
-  <h3><%= link_to entry.title, entry.url, target: 'blank' %></h3>
-  <p><%= sanitize entry.summary, tags: %w(a p div img strong b blockquote ul li h1 h2 h3 h4) %></p>
-  <h6><small>published: <%= entry.published %></small></h6>
-  <hr />
-<% end %>
+<div class="row" style="margin-top: 25px;">
+    <div class="large-3 columns">
+      <%= render 'rssreader/sidebar' %>
+    </div>
+    <div class="large-9 columns">
+      
+      <h1><%= @rssitem.friendly_name %></h1>
+      <% @feed.entries.each do |entry| %>
+        <h3><%= link_to entry.title, entry.url, target: 'blank' %></h3>
+        <p><%= sanitize entry.summary, tags: %w(a p div img strong b blockquote ul li h1 h2 h3 h4) %></p>
+        <h6><small>published: <%= entry.published %></small></h6>
+        <hr />
+      <% end %>
+      
+    </div>
+</div>

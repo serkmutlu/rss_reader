@@ -11,15 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111122808) do
+ActiveRecord::Schema.define(version: 20150113122108) do
 
-  create_table "rssreader", force: true do |t|
+  create_table "rssreaders", force: true do |t|
     t.string   "rssaddress"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "friendly_name"
     t.string   "category"
   end
+
+  create_table "rssreaders_users", id: false, force: true do |t|
+    t.integer "rssreader_id"
+    t.integer "user_id"
+  end
+
+  add_index "rssreaders_users", ["rssreader_id", "user_id"], name: "index_rssreaders_users_on_rssreader_id_and_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

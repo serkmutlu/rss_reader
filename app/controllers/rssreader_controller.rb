@@ -1,21 +1,26 @@
 class RssreaderController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, :except => 'index'
   
   def index
+    if user_signed_in?
+      @rss = current_user.rssreaders.asc
+    end
   end
   
   def show
-    @rssitem = Rssreader.find(params[:id])
-    url = Rssreader.find(params[:id]).rssaddress
-    @feed = Feedjira::Feed.fetch_and_parse url
+    @rss = current_user.rssreaders.asc
+    @rssitem = @rss.find(params[:id])
+    @feed = Feedjira::Feed.fetch_and_parse @rssitem.rssaddress
   end
   
   def new
+    @rss = current_user.rssreaders.asc
     @rssreader = Rssreader.new
   end
   
   def create
     @rssreader = Rssreader.create(rss_params)
+    @rssreader.users << current_user
     if @rssreader.save
       redirect_to rssreader_path(@rssreader)
     else

@@ -1,4 +1,14 @@
-<h2>A simple RSS reader</h2>
-<h5>This is a work-in-progress project. Browse through RSS feeds from the menu on the left. Please don't break anything.</h5>
+<div class="row" style="margin-top: 25px;">
+    <div class="large-3 columns">
+      <% if user_signed_in? %>
+        <%= render 'rssreader/sidebar' %>
+      <% end %>
+    </div>
+    <div class="large-9 columns">
+      <h2>A simple RSS reader</h2>
+      <h5>This is a work-in-progress project. <br />Login to add and view your feeds. Oooo-yeah baby!</h5>
 
-<p style="margin-top: 35px;"><small>Property of Serkan Mutlu. Big deal.</small></p>
+      <p style="margin-top: 35px;"><small>Property of Serkan Mutlu. Big deal.</small></p>
+      
+    </div>
+</div>

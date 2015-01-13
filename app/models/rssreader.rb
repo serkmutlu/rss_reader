@@ -1,4 +1,6 @@
 class Rssreader < ActiveRecord::Base
-  self.table_name = "rssreader"
-  validates :rssaddress, presence: true, uniqueness: true
+  has_and_belongs_to_many :users
+  # TO-DO: Re-visit validations
+  validates :rssaddress, presence: true
+  scope :asc, -> { order('friendly_name ASC') }
 end
