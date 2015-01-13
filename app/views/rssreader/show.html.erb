@@ -1,3 +1,4 @@
+<h1><%= @rssitem.friendly_name %></h1>
 <% @feed.entries.each do |entry| %>
   <h3><%= link_to entry.title, entry.url, target: 'blank' %></h3>
   <p><%= sanitize entry.summary, tags: %w(a p div img strong b blockquote ul li h1 h2 h3 h4) %></p>

@@ -12,16 +12,14 @@
       <!-- Right Nav Section -->
       <ul class="right">
         <li class="active"><a href="#">My Feed</a></li>
-        <li class="has-dropdown">
-          <a href="#">Hello, Serkan</a>
-          <ul class="dropdown">
-            <li><%= link_to 'Settings', "#" %></li>
-            <li><%= link_to 'Sign out', "#" %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+          <% else %>
+            <li><%= link_to('Login', new_user_session_path)  %></li>
+            <% end %>
           </ul>
-        </li>
-      </ul>
-
-      <!-- Left Nav Section
+        
+        <!-- Left Nav Section
       <ul class="left">
         <li><a href="#">Left Nav Button</a></li>
       </ul> -->

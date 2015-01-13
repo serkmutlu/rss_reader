@@ -1,3 +1,18 @@
-<% Rssreader.all.each do |address| %>
-  <h4><small><%= link_to address.rssaddress, address %></small></h4>
+<h6><small>BLOG</small></h6>
+<% Rssreader.where(["category = ?", "Blog"]).order('friendly_name ASC').each do |address| %>
+  <h4><small><%= link_to address.friendly_name, address %></small></h4>
+<% end %>
+
+<h6 style="margin-top:32px;"><small>FUN</small></h6>
+<% Rssreader.where(["category = ?", "Fun"]).order('friendly_name ASC').each do |address| %>
+  <h4><small><%= link_to address.friendly_name, address %></small></h4>
+<% end %>
+
+<h6 style="margin-top:32px;"><small>NEWS</small></h6>
+<% Rssreader.where(["category = ?", "News"]).order('friendly_name ASC').each do |address| %>
+  <h4><small><%= link_to address.friendly_name, address %></small></h4>
+<% end %>
+
+<% if user_signed_in? %>
+<p style="margin-top:32px;"><%= link_to "+ Add new", new_rssreader_path, class: "button tiny" %></p>
 <% end %>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  root 'rssreader#index'
-  resources :rssreader, only: ['index', 'show']
+  root to: "rssreader#index"
+  devise_for :users
+  resources :rssreader
+  post 'rssreader/create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
