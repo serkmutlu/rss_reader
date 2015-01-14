@@ -2,6 +2,7 @@ class RssreaderController < ApplicationController
   before_action :authenticate_user!, :except => 'index'
   
   def index
+    # Check to see if the user is signed in, don't show an RSS list on sidebar if not signed in.
     if user_signed_in?
       @rss = current_user.rssreaders.asc
     end
@@ -10,6 +11,7 @@ class RssreaderController < ApplicationController
   def show
     @rss = current_user.rssreaders.asc
     @rssitem = @rss.find(params[:id])
+    # Use Feedjira gem to fetch and parse the feed
     @feed = Feedjira::Feed.fetch_and_parse @rssitem.rssaddress
   end
   
@@ -20,8 +22,10 @@ class RssreaderController < ApplicationController
   
   def create
     @rssreader = Rssreader.new(rss_params)
+    # Use Feedbag gem to get the RSS link of a URL
     url = Feedbag.find params[:rssreader][:rssaddress]
     @rssreader.rssaddress = url[0]
+    # The RSS feed belongs to current user
     @rssreader.users << current_user
     @rssreader.save
     if @rssreader.save

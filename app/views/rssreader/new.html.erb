@@ -1,26 +1,12 @@
-<div class="row" style="margin-top: 25px;">
-    <div class="large-3 columns">
-      <%= render 'rssreader/sidebar' %>
-    </div>
-    <div class="large-9 columns">
-      <% flash.each do |key, value| %>
-        <div data-alert class="alert-box <%= key %> radius">
-          <%= value %>
-          <a href="#" class="close">&times;</a>
-        </div>
-      <% end %>
-      <%= form_for @rssreader, url: rssreader_create_path, html: { method: :post } do |f| %>
-        <%= f.label "RSS Address" %>
-        <%= f.text_field :rssaddress %>
+<%= form_for @rssreader, url: rssreader_create_path, html: { method: :post } do |f| %>
+  <%= f.label "RSS Address" %>
+  <%= f.text_field :rssaddress %>
 
-        <%= f.label "Friendly Name" %>
-        <%= f.text_field :friendly_name %>
+  <%= f.label "Friendly Name" %>
+  <%= f.text_field :friendly_name %>
 
-        <%= f.label "Category" %>
-        <%= f.select :category, options_for_select([['Blog'], ['Fun'], ['News']]) %>
+  <%= f.label "Category" %>
+  <%= f.select :category, options_for_select([['Blog'], ['Fun'], ['News']]) %>
 
-        <%= f.submit "Add Feed" %>
-      <% end %>
-      
-     </div>
-</div>
+  <%= f.submit "Add Feed" %>
+<% end %>
