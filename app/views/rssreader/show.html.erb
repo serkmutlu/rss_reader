@@ -3,7 +3,6 @@
       <%= render 'rssreader/sidebar' %>
     </div>
     <div class="large-9 columns">
-      
       <h1><%= @rssitem.friendly_name %></h1>
       <% @feed.entries.each do |entry| %>
         <h3><%= link_to entry.title, entry.url, target: 'blank' %></h3>

@@ -19,8 +19,11 @@ class RssreaderController < ApplicationController
   end
   
   def create
-    @rssreader = Rssreader.create(rss_params)
+    @rssreader = Rssreader.new(rss_params)
+    url = Feedbag.find params[:rssreader][:rssaddress]
+    @rssreader.rssaddress = url[0]
     @rssreader.users << current_user
+    @rssreader.save
     if @rssreader.save
       redirect_to rssreader_path(@rssreader)
     else
