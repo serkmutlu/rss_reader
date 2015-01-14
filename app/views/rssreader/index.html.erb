@@ -1,4 +1,8 @@
 <h2>A simple RSS reader</h2>
 <h5>This is a work-in-progress project. <br />Login to add and view your feeds. Oooo-yeah baby!</h5>
+<% unless user_signed_in? %>
+  <p style="margin-top: 30px;"><%= link_to('Login', new_user_session_path, class: "button tiny")  %>
+  <%= link_to('Register', new_user_registration_path, class: "button tiny") %></p>
+<% end %>
 
 <p style="margin-top: 35px;"><small>Property of Serkan Mutlu. Big deal.</small></p>

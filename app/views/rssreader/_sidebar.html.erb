@@ -1,5 +1,15 @@
-<h6><small>LIST</small></h6>
-<% @rss.each do |address| %>
+<h6><small>BLOG</small></h6>
+<% @rss.where("category = ?", "Blog").each do |address| %>
+  <h4><small><%= link_to address.friendly_name, address %></small></h4>
+<% end %>
+
+<h6 style="margin-top: 30px;"><small>FUN</small></h6>
+<% @rss.where("category = ?", "Fun").each do |address| %>
+  <h4><small><%= link_to address.friendly_name, address %></small></h4>
+<% end %>
+
+<h6 style="margin-top: 30px;"><small>NEWS</small></h6>
+<% @rss.where("category = ?", "News").each do |address| %>
   <h4><small><%= link_to address.friendly_name, address %></small></h4>
 <% end %>
 
