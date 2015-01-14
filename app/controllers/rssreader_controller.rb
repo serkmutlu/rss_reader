@@ -26,8 +26,10 @@ class RssreaderController < ApplicationController
     @rssreader.save
     if @rssreader.save
       redirect_to rssreader_path(@rssreader)
+      flash[:success] = "You have added #{@rssreader.friendly_name} to your list."
     else
       redirect_to new_rssreader_path
+      flash[:alert] = "We couldn't add your feed. Check the address, maybe?"
     end
   end
   
