@@ -1,3 +1,4 @@
+<h1>Add a new feed</h1>
 <%= form_for @rssreader, url: rssreader_create_path, html: { method: :post } do |f| %>
   <%= f.label "Website" %>
   <%= f.text_field :rssaddress %>
@@ -8,5 +9,5 @@
   <%= f.label "Category" %>
   <%= f.select :category, options_for_select([['Blog'], ['Fun'], ['News']]) %>
 
-  <%= f.submit "Add Feed" %>
+  <%= f.submit "Add feed" %>
 <% end %>
