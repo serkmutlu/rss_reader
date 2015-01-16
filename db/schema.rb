@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150113122108) do
 
-  create_table "choices", force: true do |t|
-    t.string   "email"
-    t.string   "shame"
-    t.string   "choice"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "rssreaders", force: true do |t|
     t.string   "rssaddress"
     t.datetime "created_at"
